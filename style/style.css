@@ -1,3 +1,4 @@
+
 * {
   padding: 0px;
   margin: 0px;
@@ -19,45 +20,51 @@ ol {
 .point-row-div-1 {
   position: relative;
 }
+.info-box {
+  display: flex;
+  justify-content: space-around;
+  font-family: robor
+  font-size: 30px;
+}
 
 .point-row-1,
 .point-row-2,
 .point-row-3 {
   display: flex;
-  justify-content: center; /* Центрирование элементов */
+  justify-content: center;
   list-style: none;
-  margin-bottom: 100px; /* Расстояние между рядами */
+  margin-bottom: 100px; 
 }
 
 .point-row-1 {
-  margin-top: 200px; /* Отступ сверху для 1го ряда */
+  margin-top: 200px; 
 }
 
 .point-row-2 {
-  margin-top: 50px; /* Отступ сверху для 2го ряда (200px от 1го + 100px) */
+  margin-top: 50px; 
 }
 
 .point-row-3 {
-  margin-top: 100px; /* Отступ сверху для 3го ряда (300px от 2го + 100px) */
+  margin-top: 100px; 
 }
 
 .point-row-1 .point,
 .point-row-2 .point,
 .point-row-3 .point {
-  margin-right: 120px; /* Добавляем расстояние */
+  margin-right: 120px; 
 }
 
 .point-row-1 .point:last-child,
 .point-row-2 .point:last-child,
 .point-row-3 .point:last-child {
-  margin-right: 0; /* У последнего элемента убираем правый margin */
+  margin-right: 0;
 }
 
 .point-row-2 .point:first-child {
-  margin-right: 50px; /* Отступ для первого элемента */
+  margin-right: 50px; 
 }
 
-/* Дополнительные стили для кругов */
+
 .circle {
   width: 30px;
   height: 30px;
@@ -67,28 +74,10 @@ ol {
 }
 
 .circle.selected {
-  background-color: orange; /* Цвет выделения */
-  border-color: orange; /* Цвет границы */
-  color: white; /* Цвет текста внутри кружка */
+  background-color: orange; 
+  border-color: orange; 
+  color: white; 
 }
 
-/* ... (ваш существующий CSS) ... */
 
-/* Добавляем стиль для tooltip */
-.circle[selected]::before {
-  content: attr(data-tooltip); /* Отображаем текст из атрибута data-tooltip */
-  position: absolute;
-  top: -25px; /* Расстояние от вершины кружка */
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: orange; /* Цвет tooltip */
-  color: white; /* Цвет текста в tooltip */
-  padding: 5px 10px;
-  border-radius: 5px;
-  white-space: nowrap; /* Предотвращаем перенос текста */
-  display: none; /* По умолчанию скрываем tooltip */
-}
 
-.circle[selected]:hover::before {
-  display: block; /* Показываем tooltip при наведении */
-}
