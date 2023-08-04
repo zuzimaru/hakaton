@@ -2,18 +2,18 @@ const circles = document.querySelectorAll(".circle");
 const clearButton = document.getElementById("clearButton");
 const apiURL = "https://myfailemtions.npkn.net/b944ff/";
 
-const selectedPositions = {};
+const selectedPositions = [];
 
 function handleCircleClick(event) {
   const clickedCircle = event.target;
   const pointName = clickedCircle.getAttribute("data-point");
 
-  if (selectedPositions[pointName]) {
+  if (selectedPositions.includes(pointName)) {
     clickedCircle.classList.remove("selected");
-    delete selectedPositions[pointName];
+    selectedPositions.splice(selectedPositions.indexOf(pointName), 1);
   } else {
     clickedCircle.classList.add("selected");
-    selectedPositions[pointName] = true;
+    selectedPositions.push(pointName);
   }
 }
 
@@ -26,11 +26,7 @@ function handleClearClick() {
     circle.classList.remove("selected");
   });
 
-  for (const point in selectedPositions) {
-    if (selectedPositions.hasOwnProperty(point)) {
-      delete selectedPositions[point];
-    }
-  }
+  selectedPositions.length = 0;
 }
 
 clearButton.addEventListener("click", handleClearClick);
